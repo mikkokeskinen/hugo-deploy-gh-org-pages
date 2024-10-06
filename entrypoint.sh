@@ -64,6 +64,7 @@ cd "$GITHUB_WORKSPACE" || exit 1
 
 printf "\033[0;32mBuilding site...\033[0m\n"
 
+npm install
 npx tinacms build && hugo
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
