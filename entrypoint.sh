@@ -69,24 +69,21 @@ npx tinacms build && hugo
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
-ls -laR public/admin
-
 # Go To Public folder
 cd public
-
-git status
+rm admin/.gitignore
 
 # Add changes to git.
 git add .
 
-#if output="$(git status --porcelain)" && [ -z "$output" ]; then
-#  printf "\033[0;32mGit status is clean. Nothing to do.\033[0m\n"
-#else
+if output="$(git status --porcelain)" && [ -z "$output" ]; then
+  printf "\033[0;32mGit status is clean. Nothing to do.\033[0m\n"
+else
   # Commit changes.
   msg="${GITHUB_REPOSITORY} action hugo-deploy-gh-org-pages automated rebuilding of site at $(date)"
   git commit -am "$msg"
 
   # Push source and build repos.
   git push origin master
-#fi
+fi
 printf "\033[0;32mDone for now\033[0m\n"
