@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM node:22-alpine
 
 ENV HUGO_VERSION 0.135.0
 

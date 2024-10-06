@@ -61,9 +61,12 @@ git checkout master
 git fetch
 git pull origin master
 cd "$GITHUB_WORKSPACE" || exit 1
-printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
-hugo
+printf "\033[0;32mBuilding site...\033[0m\n"
+
+npx tinacms build && hugo
+
+printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 # Go To Public folder
 cd public
