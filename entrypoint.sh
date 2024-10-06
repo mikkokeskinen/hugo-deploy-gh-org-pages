@@ -39,7 +39,7 @@ git config --global user.name "$GITHUB_ACTOR"
 git config --global core.sshCommand 'ssh -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa -F /dev/null'
 git config --global status.submodulesummary 1
 git config --global diff.submodule log
-git config --global --add safe.directory "$GITHUB_WORKSPACE"
+git config --global --add safe.directory "$GITHUB_WORKSPACE/*"
 
 if [ "$DEBUG" = "" ]
 then
